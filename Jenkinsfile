@@ -19,6 +19,7 @@ pipeline {
       steps {
         sh 'mvn test'
         sh 'echo "its done"'
+        archiveArtifacts '/target/surefire-reports/*.xml'
       }
     }
 
