@@ -11,7 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'mvn clean package -Dskiptests=true'
-        archiveArtifacts '/var/lib/jenkins/workspace/learning_jenkins_main/target*.jar'
+        archiveArtifacts '/var/lib/jenkins/workspace/learning_jenkins_main/target/*.jar'
       }
     }
 
