@@ -1,5 +1,5 @@
 pipeline {
-    agent all
+    agent any
 
     tools {
         maven "310"
