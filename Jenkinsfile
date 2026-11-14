@@ -1,29 +1,28 @@
 pipeline {
-    agent any
-
-    tools {
-        maven "M310"
+  agent any
+  stages {
+    stage('echo version') {
+      steps {
+        sh 'echo Print Maven version'
+        sh 'mvn -version'
+      }
     }
 
-    stages {
-        
-        stage("echo version") {
-            steps{
-                sh "echo Print Maven version"
-                sh "mvn -version"
-            }
-        }
-
-        stage("Build") {
-            steps{
-                sh "mvn clean package -Dskiptests=true"
-            }
-        }
-
-        stage("Unit test"){
-            steps{
-                sh "mvn test"
-            }
-        }
+    stage('Build') {
+      steps {
+        sh 'mvn clean package -Dskiptests=true'
+      }
     }
+
+    stage('Unit test') {
+      steps {
+        sh 'mvn test'
+        sh 'echo "its done"'
+      }
+    }
+
+  }
+  tools {
+    maven 'M310'
+  }
 }
