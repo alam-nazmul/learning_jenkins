@@ -10,7 +10,7 @@ pipeline {
         stage("echo version") {
             steps{
                 sh "echo Print Maven version"
-                sh "mv -version"
+                sh "mvn -version"
             }
         }
 
