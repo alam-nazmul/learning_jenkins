@@ -18,6 +18,7 @@ pipeline {
       steps {
         sh 'mvn test'
         sh 'echo "its done"'
+        sh 'echo "loading"'
         junit(testResults: 'target/surefire-reports/*.xml', keepTestNames: true, keepProperties: true)
       }
     }
